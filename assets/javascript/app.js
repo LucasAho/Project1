@@ -15,7 +15,8 @@ $("#test").on("click", function() {
         var weatherArray = (response.list);
         console.log(weatherArray[5]);
         console.log(weatherArray[5].main.temp);
-        console.log(weatherArray[5]);
+        console.log(weatherArray[5].wind.speed);
+        console.log(weatherArray[5].weather[0].description);
     })
 }) 
 
