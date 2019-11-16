@@ -1,7 +1,11 @@
 var resortId = ["20", "25", "36", "77", "113", "120", "1673", "143", "181", "197", "220", "240", "329", 
 "330", "1435", "372", "425", "445", "456", "482", "507", "511"]
 
-var resortZip = 80435;
+var temp;
+var windSpd;
+var weather;
+
+var resortZip = 80435; //change to button value with mike drop down
 $("#test").on("click", function() {
     
     var openWeatherQueryURL = "https://api.openweathermap.org/data/2.5/forecast?zip=" + resortZip + ",us&units=imperial&APPID=8945840c8250c919b4821b938074f3a6"
@@ -12,11 +16,15 @@ $("#test").on("click", function() {
         method: "GET"
     })
     .then(function(response) {
+
         var weatherArray = (response.list);
         console.log(weatherArray[5]);
         console.log(weatherArray[5].main.temp);
         console.log(weatherArray[5].wind.speed);
         console.log(weatherArray[5].weather[0].description);
+        temp = weatherArray[5].main.temp;
+        windSpd = weatherArray[5].wind.speed;
+        weather = weatherArray[5].weather[0].description;
     })
 }) 
 
